@@ -6,6 +6,13 @@
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	padding:20px;
+	background-image: url('images/back.jpg'); /* The image used */
+	background-color: #cccccc; /* Used if the image is unavailable */
+	height: 500px; /* You must set a specified height */
+	background-position: center; /* Center the image */
+	background-attachment: fixed;
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
 }
 table{
 	width:100%;
@@ -19,6 +26,10 @@ th{
 }
 td{
 	background-color:#d0d9d2;
+	color:black;
+}
+td a{
+	text-decoration:none;
 	color:black;
 }
 .w-5{
@@ -35,12 +46,13 @@ td{
 	text-decoration:none;
 	border:1px solid grey;
 }
+
 </style>
 </head>
 <body>
 	<br>
 	<br>
-	<h3 align="center">This APP is developed by: I.E.U. Juboraj Naofel</h3>
+	<h3 align="center">This APP is developed by:</h3><h1 align="center">I.E.U. Juboraj Naofel</h1>
 	<br>
 	<br>
 	<?php 		
@@ -91,7 +103,7 @@ td{
 	?>
 	</script>
 	
-	<div style="" align="center">
+	<div style="border:1px solid grey; background-color:rgba(0, 0, 0, 0.3); padding:15px; color:white;" align="center">
 		<h4>Graph of Stock Market Data</h4>
 		<div align="center">
 		  X axis:<button id="4" onclick="funcountx()">>></button>
@@ -99,7 +111,7 @@ td{
 		  Y axis:<button id="4" onclick="funcounty()">>></button>
 		</div>
 		<br>
-		<div id="myPlot" style="width:100%; height:300px;"></div>
+		<div id="myPlot" style="width:80%; height:300px;"></div>
 	</div>
 	
 	<script>
@@ -197,7 +209,8 @@ td{
 	
 	<br>
 	<br>
-	
+	<div style="border:1px solid grey; background-color:rgba(0, 0, 0, 0.3); padding:15px;" >
+	<h3>Table for stock market data:</h3>
 	<table border = 1>
 	<thead>
 		<tr>
@@ -223,11 +236,12 @@ td{
 		  <td><a onmouseover="bigImg(this)" onmouseout="normalImg(this)" href="table/{{ $d['id'] }}/open/{{ $d['open'] }}">{{ $d['open'] }}</a></td>
 		  <td><a onmouseover="bigImg(this)" onmouseout="normalImg(this)" href="table/{{ $d['id'] }}/close/{{ $d['close'] }}">{{ $d['close'] }}</a></td>
 		  <td><a onmouseover="bigImg(this)" onmouseout="normalImg(this)" href="table/{{ $d['id'] }}/volume/{{ $d['volume'] }}">{{ $d['volume'] }}</a></td>
-		  <td><a onmouseover="bigImg(this)" onmouseout="normalImg(this)" href="table/{{ $d['id'] }}">Delete</a></td>
+		  <td><a  href="table/{{ $d['id'] }}">Delete</a></td>
 		</tr>
          @endforeach
 	  </tbody>
       </table>
+	  </div>
 	  <br>
 	  <div id="paginationlink">
 		{{$data->links()}}
@@ -237,20 +251,26 @@ td{
 	  
 	  
 	  
-<script>
-	function bigImg(x) {
-		y = x.innerHTML;
-		x.innerHTML = y+" - edit";
-	  
-	}
+	<script>
+		function bigImg(x) {
+			y = x.innerHTML;
+			x.innerHTML = y+" - edit";
+		  
+		}
 
-	function normalImg(x) {
-	  x.innerHTML = y;
-	}
-	function fun(j){
-		k = j.innerHTML
-		j.innerHTML = "<input type='text' value='"+k+"'/>"
-	}
-</script>
+		function normalImg(x) {
+		  x.innerHTML = y;
+		}
+		function fun(j){
+			k = j.innerHTML
+			j.innerHTML = "<input type='text' value='"+k+"'/>"
+		}
+	</script>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+	<p >This site is developed by I.E.U. Juboraj Naofel</p>
+	</div>
 </body>
 </html>

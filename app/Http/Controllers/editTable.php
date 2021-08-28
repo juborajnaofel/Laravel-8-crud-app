@@ -16,11 +16,15 @@ class editTable extends Controller
 		DB::update('update stock_market_datas SET '.$col.' = '.$val.' where id='.$row.'');
 
 		echo "Record Updated successfully.<br/>";
+		return view('Cellupdated');
+		
 	}
 	public function destroy(Request $request) {
 		$row = $request->input('cellrow');
 		DB::delete('delete from stock_market_datas where id = ?',[$row]);
 		echo "Record deleted successfully.";
+		
+		return view('deletedrow');
 	}
 	public function deleterowtable(Request $request) {
       $row = $request->input('cellrow');
