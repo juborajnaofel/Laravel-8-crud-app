@@ -32,8 +32,17 @@ class editTable extends Controller
       echo "Record inserted successfully.<br/>";
 	}
 	function viewT(){
-      //$users = DB::select("SELECT *FROM stock_market_data ORDER BY id LIMIT 10");
 	  $data = stock_market_data::paginate(10);
-      return view('welcome',['data'=>$data]);
+	  $data3 = DB::table('stock_market_datas')->get();
+	  $data2 = stock_market_data::all();
+	  
+	  $a1=array();
+		foreach ($data2 as $d1){
+		  array_push($a1,$d1['trade_code']);
+		}
+	  
+	  $data2 = array_unique($a1);
+	  echo gettype($data3);
+      return view('welcome',['data'=>$data, 'tcdata'=>$data2, 'graphdata'=>$data3]);
 	}
 }
