@@ -129,7 +129,7 @@ td a{
 					@endforeach
 				</div>
 			</div>
-			
+			<div id="tradec"></div>
 		</div>
 		<br>
 		<div id="myPlot2" style="width:100%; height:400px;"></div>
@@ -190,7 +190,7 @@ td a{
 	</script>
 	<script>
 		function tc_data_change(value_tc){
-			alert("Showing "+value_tc)
+			document.getElementById("tradec").innerHTML = "trade code:"+value_tc;
 			update_graph_array(value_tc);
 		}
 		function update_graph_array(tcd_val){

@@ -42,7 +42,6 @@ class editTable extends Controller
 		}
 	  
 	  $data2 = array_unique($a1);
-	  echo gettype($data3);
       return view('welcome',['data'=>$data, 'tcdata'=>$data2, 'graphdata'=>$data3]);
 	}
 }
